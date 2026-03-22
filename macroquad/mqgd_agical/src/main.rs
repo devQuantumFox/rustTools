@@ -16,6 +16,9 @@ async fn main() {
         if is_key_down(KeyCode::Down) { y += MOVEMENT_SPEED * delta_time; }
         if is_key_down(KeyCode::Up) { y -= MOVEMENT_SPEED * delta_time; }
 
+        x = clamp(x, 0.0, screen_width());
+        y = clamp(y, 0.0, screen_height());
+
         draw_circle(x, y, 16.0, YELLOW);
 
         next_frame().await
