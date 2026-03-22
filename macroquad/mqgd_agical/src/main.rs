@@ -5,6 +5,7 @@ async fn main() {
 
     let mut x = screen_width() / 2.0;
     let mut y = screen_height() / 2.0;
+    let mut r = 16.0;
     const MOVEMENT_SPEED: f32 = 200.0;
 
     loop {
@@ -16,10 +17,10 @@ async fn main() {
         if is_key_down(KeyCode::Down) { y += MOVEMENT_SPEED * delta_time; }
         if is_key_down(KeyCode::Up) { y -= MOVEMENT_SPEED * delta_time; }
 
-        x = clamp(x, 0.0, screen_width());
-        y = clamp(y, 0.0, screen_height());
+        x = clamp(x, 0.0 + r, screen_width() - r);
+        y = clamp(y, 0.0 + r, screen_height() - r);
 
-        draw_circle(x, y, 16.0, YELLOW);
+        draw_circle(x, y, r, YELLOW);
 
         next_frame().await
     }
