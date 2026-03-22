@@ -1,10 +1,9 @@
 use macroquad::prelude::*;
 
-#[macroquad::main("My First Game")]
+#[macroquad::main("My game")]
 async fn main() {
     loop {
-        clear_background(RED);
-        draw_text("HELLO MACROQUAD!", 20.0, 20.0, 30.0, DARKGRAY);
+        clear_background(DARKPURPLE);
         next_frame().await
     }
 }
